@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# React + Next.js + Bootstrap (App Router) Template
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![React](https://img.shields.io/badge/React-19-blue)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple)
+![pnpm](https://img.shields.io/badge/pnpm-10-orange)
 
-First, run the development server:
+A **working, modern example** of using **Bootstrap 5 with React and Next.js App Router**.
+
+This repository is a **fixed and updated version** of the official Bootstrap Next.js example, rebuilt to work correctly with:
+
+- **Next.js App Router**
+- **React 19**
+- **Bootstrap 5**
+- **React-Bootstrap**
+- **Sass**
+- **pnpm**
+
+The original Bootstrap example was built using the **Pages Router** and does not work correctly with the App Router without changes. This project shows the correct setup.
+
+---
+
+## ✨ Features
+
+- ✅ Next.js **App Router** (`app/` directory)
+- ✅ Bootstrap 5 with **Sass**
+- ✅ React-Bootstrap components (Popover, Buttons, etc.)
+- ✅ Hydration-safe layout
+- ✅ Client components handled correctly
+- ✅ pnpm-compatible
+- ✅ Minimal and easy to extend
+
+---
+
+## 📦 Tech Stack
+
+- Next.js 16+
+- React 19
+- Bootstrap 5
+- React-Bootstrap
+- Sass
+- pnpm
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/DXWizTech/react-nextjs-bootstrap-template.git
+cd react-nextjs-bootstrap-template
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Run the dev server
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open:
+👉 [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 Styling Setup
 
-## Deploy on Vercel
+Bootstrap is imported via Sass:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```scss
+// styles/main.scss
+@import "../node_modules/bootstrap/scss/bootstrap";
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You can override Bootstrap variables **before** the import.
+
+---
+
+## 🧠 Important Notes (Read This)
+
+### 1. App Router vs Pages Router
+
+This project uses **App Router** (`app/`), not `pages/`.
+
+Many older Bootstrap + Next.js examples assume the Pages Router and will break with hydration or runtime errors when used with App Router.
+
+---
+
+### 2. React-Bootstrap Components
+
+Components like:
+
+- `OverlayTrigger`
+- `Popover`
+- `Tooltip`
+- `Modal`
+
+**must be client components**.
+
+Always add this at the top:
+
+```ts
+"use client";
+```
+
+Example:
+
+```tsx
+"use client";
+import { OverlayTrigger, Popover, Button } from "react-bootstrap";
+```
+
+Server components cannot use `ref` or browser events.
+
+---
+
+### 3. pnpm + Sass
+
+This project works correctly with `pnpm`.
+Bootstrap SCSS imports use `node_modules` paths to avoid resolution issues.
+
+---
+
+## 🧪 What This Project Is For
+
+- Learning Bootstrap + React in **modern Next.js**
+- Starting a new project with App Router
+- Reference implementation for fixing hydration issues
+- Replacing outdated Bootstrap Next.js examples
+
+---
+
+## 📄 License
+
+MIT — same as Bootstrap.
+
+---
+
+## 🙌 Credits
+
+- Bootstrap Team (for Bootstrap & React-Bootstrap)
+- Next.js Team
+
+This repo exists to bridge the gap between **old examples** and **modern Next.js**.
+
+---
+
+## 👥 Created and Maintained by **DXWiz Team**
+
+- GitHub: https://github.com/DXWizTech
+- Website: https://dxwiz.com
+
+If you find this useful, feel free to star the repo ⭐

@@ -1,0 +1,13 @@
+// styles/main.scss
+
+// 1. Include any default variable overrides here (though functions won’t be available)
+
+$font-family-base: var(--font-geist-sans), sans-serif;
+$headings-font-family: var(--font-geist-mono), sans-serif;
+
+$success: #34e01e;
+
+// 2. Import bootstrap styels
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// 3. Add additional custom code here
